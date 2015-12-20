@@ -135,7 +135,7 @@ case "$1" in
         if [ "$2" != '' ];then
             generate_report
             echo "Sending report to $2..."
-            cat $FILENAME | mail -s "RPi MyHealth Report: $(date +%D--%T)" -f $FILENAME $2
+            cat $FILENAME | mail -s "RPi MyHealth Report: $(date +%D--%T)" $2
         else
             echo "Usage: $0 email|mail myemail@gmail.com"
         fi
