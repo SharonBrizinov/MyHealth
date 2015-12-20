@@ -12,7 +12,7 @@ who
 uptime
 df
 w
-ps aux
+ps
 netstat
 ifconfig
 iptables
