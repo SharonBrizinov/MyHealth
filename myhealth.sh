@@ -20,6 +20,10 @@ function system_health ()
     hostname
     echo
 
+    echo -n "My External IP:        "
+    wget http://ipinfo.io/ip -qO -
+    echo
+
     echo -n "System Version:        "
     uname -a
     echo
