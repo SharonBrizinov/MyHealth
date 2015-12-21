@@ -46,6 +46,18 @@ function system_health ()
     w
     echo
     echo
+
+    echo "Recent logins (10):       "
+    echo "=========================="
+    last -n 10
+    echo
+    echo
+
+    echo "Cron jobs:                "
+    echo "=========================="
+    crontab -l | grep -v "#"
+    echo
+    echo
     
     echo "Processes:                "
     echo "=========================="
@@ -60,13 +72,13 @@ function system_health ()
     echo
     echo
     
-    echo "SSH (Successful):         "
+    echo "SSH (Successful) (5):     "
     echo "=========================="
     cat /var/log/auth.log | grep Accepted | tail -n 5
     echo
     echo
 
-    echo "SSH (Failures):           "
+    echo "SSH (Failures) (5):       "
     echo "=========================="
     cat /var/log/auth.log | grep Invalid | tail -n 5
     cat /var/log/auth.log | grep preauth | tail -n 5
@@ -137,7 +149,7 @@ case "$1" in
             echo "Sending report to $2..."
             cat $FILENAME | mail -s "RPi MyHealth Report: $(date +%D--%T)" $2
         else
-            echo "Usage: $0 email|mail myemail@gmail.com"
+            echo "Usage: $0 email|mail myemail@email.com"
         fi
         ;;
 
