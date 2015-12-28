@@ -93,13 +93,13 @@ function system_health ()
 
     echo "Network:                  "
     echo "=========================="
-    netstat -ntupa
+    /bin/netstat -ntupa
     echo "--------------------------"
     echo
-    ifconfig -a
+    /sbin/ifconfig -a
     echo "--------------------------"
     echo
-    iptables -nvL
+    /sbin/iptables -nvL
     echo "--------------------------"
     echo
     echo
